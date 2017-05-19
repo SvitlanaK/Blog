@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+ @(Html.Kendo().Grid<Data.Entity.Post>()
+    .Name("grid")
+     .Columns(columns =>
+     {
+         columns.Bound(c => c.AuthorName);
+         columns.Bound(c => c.Title);
+         columns.Bound(c => c.Description);
+         columns.Bound(c => c.Date);
+         columns.Bound(c => c.Image);
+         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+     })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Scrollable()
+      .Pageable()
+    .Sortable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Posts_Read", "Admin"))
+          .Create(create => create.Action("Posts_Create", "Admin"))
+          .Update(update => update.Action("Posts_Update", "Admin"))
+          .Destroy(destroy => destroy.Action("Posts_Destroy", "Admin"))
+      )
+)
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>

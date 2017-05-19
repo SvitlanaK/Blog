@@ -1,0 +1,10 @@
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\Data.Entity.dll.config
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\Data.Entity.dll
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\Data.Entity.pdb
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\EntityFramework.dll
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\EntityFramework.xml
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\obj\Debug\Data.Entity.dll
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\obj\Debug\Data.Entity.pdb
+C:\Users\Svitlana\Documents\GitHub\WebApplication1\Data.Entity\obj\Debug\Data.Entity.csprojResolveAssemblyReference.cache
