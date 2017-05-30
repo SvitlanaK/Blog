@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "EditeFile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="../../Scripts/Kendo/jquery.min.js" type="text/javascript"></script>
+<script src="../../Scripts/Kendo/kendo.web.min.js" type="text/javascript"></script>
+<script src="../../Scripts/Kendo/kendo.aspnetmvc.min.js" type="text/javascript"></script>
+<script src="../../Scripts/Kendo/console.js" type="text/javascript"></script>
+
+
+
+
+<link href="../../Content/Kendo/kendo.common.min.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/Kendo/kendo.default.min.css" rel="stylesheet" type="text/css" />
+
+
+@(Html.Kendo().Grid<WebApplication1.Models.LoginViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Email);
+          columns.Bound(c => c.Password);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Scrollable()
+      .Sortable()
+      .Pageable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Email))
+          .Read(read => read.Action("Posts_Read", "Grid"))
+          .Create(create => create.Action("Posts_Create", "Grid"))
+          .Update(update => update.Action("Posts_Update", "Grid"))
+          .Destroy(destroy => destroy.Action("Posts_Destroy", "Grid"))
+      )
+)
+
+
